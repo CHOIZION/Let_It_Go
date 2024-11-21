@@ -1,3 +1,5 @@
+// 오토 커밋
+
 package main
 
 import (
