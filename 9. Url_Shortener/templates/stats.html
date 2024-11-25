@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL 단축기 통계</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>URL 통계</h1>
+    <table>
+        <tr>
+            <th>단축 코드</th>
+            <th>원본 URL</th>
+            <th>생성일</th>
+            <th>만료일</th>
+            <th>접근 횟수</th>
+        </tr>
+        {{range $code, $data := .}}
+        <tr>
+            <td>{{$code}}</td>
+            <td><a href="{{$data.LongURL}}">{{$data.LongURL}}</a></td>
+            <td>{{$data.CreatedAt.Format "2006-01-02 15:04:05"}}</td>
+            <td>{{if $data.Expiration.IsZero}}-{{else}}{{$data.Expiration.Format "2006-01-02 15:04:05"}}{{end}}</td>
+            <td>{{$data.AccessCount}}</td>
+        </tr>
+        {{end}}
+    </table>
+    <p><a href="/">메인 페이지로 이동</a></p>
+</body>
+</html>

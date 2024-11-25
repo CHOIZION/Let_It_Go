@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL 단축기</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>간단한 URL 단축기</h1>
+    <form action="/shorten" method="POST">
+        <input type="url" name="url" placeholder="URL을 입력하세요" required>
+        <br>
+        <input type="text" name="custom_code" placeholder="커스텀 코드 (선택)">
+        <br>
+        <input type="number" name="expiration" placeholder="만료 일수 (선택)">
+        <br>
+        <button type="submit">단축하기</button>
+    </form>
+    <p><a href="/stats">통계 보기</a></p>
+</body>
+</html>
